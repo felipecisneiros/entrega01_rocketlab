@@ -7,14 +7,11 @@ Este repositório contém a Entrega 01 dos desafios propostos no Rocket Lab Dado
 -A estrutura de pastas e arquivos foi mantida conforme especificado no desafio:
 
 └─ Atividade01 - Pyspark/
-   
    ├─ dados/
-   
-   │  ├─ fut_players_data.csv
-   │  ├─ metal_bands.csv
-   │  └─ pokemnon_data.csv
-   
-└─ Atividade1_PySpark.ipynb
+    │  ├─ fut_players_data.csv
+    │  ├─ metal_bands.csv
+    │  └─ pokemnon_data.csv
+   └─ Atividade1_PySpark.ipynb
 
 ---
 
