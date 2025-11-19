@@ -1,0 +1,28 @@
+resources:
+  jobs:
+    ORQUESTRAÇÃO_ROCKET_LAB:
+      name: ORQUESTRAÇÃO - ROCKET LAB
+      schedule:
+        quartz_cron_expression: 2 0 13 * * ?
+        timezone_id: America/Sao_Paulo
+        pause_status: UNPAUSED
+      tasks:
+        - task_key: run_bronze_ingestion
+          notebook_task:
+            notebook_path: /Workspace/Users/fca@cesar.school/Atividade2_land_to_bronze
+            source: WORKSPACE
+        - task_key: run_silver_transform
+          depends_on:
+            - task_key: run_bronze_ingestion
+          notebook_task:
+            notebook_path: /Workspace/Users/fca@cesar.school/Atividade2_bronze_to_silver
+            source: WORKSPACE
+        - task_key: run_gold_aggregate
+          depends_on:
+            - task_key: run_silver_transform
+          notebook_task:
+            notebook_path: /Workspace/Users/fca@cesar.school/Atividade3_silver_to_gold
+            source: WORKSPACE
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
